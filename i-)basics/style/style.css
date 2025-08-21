@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+#detail-header {
+  background-color: tomato;
+  font-size: 50px;
+  height: 100px;
+}
+
+main {
+  height: calc(100vh - 200px);
+  background-color: purple;
+}
+
+footer {
+  height: 100px;
+  background-color: turquoise;
+  text-align: center;
+  font-size: 55px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title-style, .title-5, .title-4, .title-3, .title-2, .title-1 {
+  background-color: tomato;
+  color: purple;
+  padding: 20px 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  margin: 10px;
+  font-family: "Cairo", sans-serif;
+}
+
+.title-style:hover, .title-5:hover, .title-4:hover, .title-3:hover, .title-2:hover, .title-1:hover {
+  transform: scale(0.9);
+}
+
+.title-1 {
+  font-size: 3rem;
+}
+
+.title-1:hover {
+  background-color: black;
+  color: white;
+}
+
+.title-2 {
+  font-size: 2.7rem;
+}
+
+.title-3 {
+  font-size: 2.5rem;
+  background-color: green;
+}
+
+.title-4 {
+  font-size: 2.3rem;
+}
+
+.title-5 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#flexbox, header .buttons-wrapper, header nav li a, header nav, header {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  justify-content: space-around;
+  background-color: #d9c4b0;
+  padding: 10px 20px;
+  font-family: "Cairo", sans-serif;
+}
+@media (max-width: 1200px) {
+  header {
+    background-color: aqua;
+  }
+}
+header .logo {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+header .logo:hover {
+  transform: scale(0.9);
+}
+header .logo h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+header .logo h1 span {
+  color: gray;
+}
+header nav {
+  gap: 10px;
+}
+@media (max-width: 1200px) {
+  header nav {
+    display: none;
+  }
+}
+header nav li {
+  list-style: none;
+  padding: 10px 5px;
+}
+header nav li a {
+  text-decoration: none;
+  gap: 10px;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+header nav li a:hover {
+  color: white;
+}
+header .buttons-wrapper {
+  gap: 20px;
+}
+header .buttons-wrapper button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+header .buttons-wrapper button:hover {
+  transform: scale(1.1);
+}
+header .buttons-wrapper button:first-child {
+  background-color: green;
+}
+header .buttons-wrapper button:last-child {
+  background-color: tomato;
+}
+
+/*
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #d9c4b0;
+  padding: 10px 20px;
+  font-family: "Cairo", sans-serif;
+}
+
+
+header .logo {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+header .logo:hover {
+  transform: scale(0.9);
+}
+
+header .logo h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+
+header .logo h1 span {
+  color: gray;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+header nav li {
+  list-style: none;
+  padding: 10px 5px;
+}
+
+header nav li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+header nav li a:hover {
+  color: white;
+}
+
+
+header .buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .buttons-wrapper button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+
+header .buttons-wrapper button:hover {
+  transform: scale(1.1);
+}
+
+header .buttons-wrapper button:first-child {
+  background-color: green;
+}
+
+header .buttons-wrapper button:last-child {
+  background-color: tomato;
+}
+
+   */
+#flex-between, .wrapper, .section-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-1 {
+  background-color: purple;
+  color: white;
+  padding: 20px 30px;
+  margin: 20px 10px;
+}
+
+.wrapper {
+  background-color: green;
+  padding: 20px;
+  margin: 10px;
+}
+
+#more-btn {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: lawngreen;
+}
+#more-btn:hover {
+  transform: rotate(15deg);
+}
+
+#detail-btn {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: dodgerblue;
+}
+#detail-btn:hover {
+  transform: rotate(15deg);
+}
+
+#login-btn {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: violet;
+}
+#login-btn:hover {
+  transform: rotate(15deg);
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,330 @@
+// Scss Import
+@use "./variables";
+@use "./detail";
+@use "./reset";
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+// Scss Değişkenleri
+
+// ! Extend kullanım eklemesi
+
+// Bir scss değişkeni tanımlarken $ işareti yazar akabinde ise değişkene bir isim veririz.Bu isimin değişkenin içeriği ile ilintili olmasında fayda vardır.Eğer bu isim birden fazla kelimden oluşuyorsa (primary color,big title,...) bu durumda kelimeler arasına - işareti koyarız.Bu sayede değişkenlerimizi daha okunabilir hale getirmiş oluruz.
+
+.title-style {
+  background-color: variables.$title-bg;
+  color: variables.$title-color;
+  padding: variables.$title-padding-y variables.$title-padding-x;
+  border-radius: variables.$title-radius;
+  cursor: pointer;
+  transition: variables.$title-transition;
+  margin: 10px;
+  font-family: variables.$font-primary;
+}
+.title-style:hover {
+  transform: scale(0.9);
+}
+
+.title-1 {
+  font-size: 3rem;
+  @extend .title-style;
+}
+.title-1:hover {
+  background-color: black;
+  color: white;
+}
+
+.title-2 {
+  font-size: 2.7rem;
+  @extend .title-style;
+}
+.title-3 {
+  font-size: 2.5rem;
+  @extend .title-style;
+  background-color: green; // Miras alınan özelliklerin haricinde istenilen özelleştirmeler yapılabilir
+}
+
+.title-4 {
+  font-size: 2.3rem;
+  @extend .title-style;
+}
+.title-5 {
+  font-size: 2rem;
+  @extend .title-style;
+  text-align: center;
+}
+
+// ! Özetle scss değişkenleri ile kodlarımızı daha kolay bir şekilde yönetebiliriz.
+
+// Scss Nesting Yazım
+
+// ! Extend kullanım eklemesi
+
+// Scss'de bir elementin içindeki elementleri yazarken o elementin ismini yazıp akabinde süslü parantez açarız ve o elementin içindeki elementleri bu süslü parantez içine stillendirebiliriz.
+
+// Header'ı Nesting Yazım Kullanarak Stillendirme
+
+#flexbox {
+  display: flex;
+  align-items: center;
+}
+
+@mixin laptop {
+  @media (max-width: 1200px) {
+    @content; // Bu sayede mixin yapısı çağırıldığında yazılan kodlar bu media sorgusu içine yerleştirilecek.
+  }
+}
+
+header {
+  @extend #flexbox;
+  justify-content: space-around;
+  background-color: #d9c4b0;
+  padding: 10px 20px;
+  font-family: "Cairo", sans-serif;
+
+  @include laptop {
+    background-color: aqua;
+  }
+
+  // Logo
+  .logo {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    // & işareti scss'de elemanların kapsayıcısına erişmek için kullanılır.Burada .logo'ya erişmek için kullanıldı.
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    // h1
+    h1 {
+      font-size: 2rem;
+      white-space: nowrap;
+
+      // span
+      span {
+        color: gray;
+      }
+    }
+  }
+  // Nav
+  nav {
+    @extend #flexbox;
+    gap: 10px;
+
+    @include laptop {
+      display: none;
+    }
+    // li
+    li {
+      list-style: none;
+      padding: 10px 5px;
+      // a
+      a {
+        text-decoration: none;
+        @extend #flexbox;
+        gap: 10px;
+        color: black;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  // Buttons Wrapper
+  .buttons-wrapper {
+    @extend #flexbox;
+    gap: 20px;
+
+    // Button
+    button {
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      color: white;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:first-child {
+        background-color: green;
+      }
+      &:last-child {
+        background-color: tomato;
+      }
+    }
+  }
+}
+
+// Header'ı Nesting Yazım Kullanmadan Stillendirme
+
+/*
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #d9c4b0;
+  padding: 10px 20px;
+  font-family: "Cairo", sans-serif;
+}
+
+
+header .logo {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+ 
+header .logo:hover {
+  transform: scale(0.9);
+}
+   
+header .logo h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+
+header .logo h1 span {
+  color: gray;
+}
+  
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+header nav li {
+  list-style: none;
+  padding: 10px 5px;
+}
+
+header nav li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+  
+header nav li a:hover {
+  color: white;
+}
+   
+
+header .buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+  
+header .buttons-wrapper button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+
+header .buttons-wrapper button:hover {
+  transform: scale(1.1);
+}
+
+header .buttons-wrapper button:first-child {
+  background-color: green;
+}
+
+header .buttons-wrapper button:last-child {
+  background-color: tomato;
+}
+
+   */
+
+// ! Özetle scss nesting yazım kapsam içindeki elemanlara erişip stillendirme yaparken fazla kod yazmamızı engeller ve daha hızlı kod yazmamızı sağlar.Fakat bu noktada elemanlara doğru seçici ile eriştiğimizden emin olmalıyız.Aksi takdirde verdiğimiz stiller elemanlara uygulanmayacaktır.
+
+// Scss Extend (Miras Alma) Kullanımı
+
+// Scss'de kod tekrarını engellemek için miras alma işlemi yapılabilir.Miras alma işlemi için bir class veya id altından toplanan stilleri başka bir elemana çağırırız.Bunun ise özelliği çağırmak istediğimiz yerde `@extend özellikSağlayacakElamanAdı` şeklinde yaparız.
+
+// Bir ebevyn stili oluştur
+
+#flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-1 {
+  background-color: purple;
+  color: white;
+  padding: 20px 30px;
+  margin: 20px 10px;
+  @extend #flex-between;
+}
+
+.wrapper {
+  background-color: green;
+  padding: 20px;
+  margin: 10px;
+  @extend #flex-between;
+}
+
+// ! Özetle scss extend kullanımı ile kod tekrarını engelleyebiliriz ve kodlarımızı daha okunabilir hale getirebiliriz.Extend işlemi ile miras aldığımız özellikler değiştirilebilir ve özelleştirilebilir.
+
+// Scss Mixin Yapısı
+
+// Butonlar için ortak mixin yapısı
+
+@mixin button-style {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: rotate(15deg);
+  }
+}
+
+#more-btn {
+  @include button-style;
+  background-color: lawngreen;
+}
+
+#detail-btn {
+  @include button-style;
+  background-color: dodgerblue;
+}
+
+#login-btn {
+  @include button-style;
+  background-color: violet;
+}
+
+// Responsive Tasarım İçin Mixin Kullanımı
+
+// Responsive tasarım yaparken elemanların önce büyük ekranlarda nasıl görüneceğini tanımlayıp sonrasında küçük ekranlarda nasıl görüneceğini tanımlamak proje boyutunun artması durumunda kod karmaşasına neden olabilir.Bu durumu scss mixin yapısı kullanarak daha kolay bir şekilde yapabiliriz.Bunun için klasik bir mixin yapısı oluşturup içerisine @media sorgusu ekleyeceğiz.
+
+// Örnek kod 84. satırda
+
+// ! Özetle scss mixin yapıları ile hem ortak yapılar oluşturabilir hemde responsive tasarımları daha kolay bir şekilde yapabiliriz.

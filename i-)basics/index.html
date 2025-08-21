@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scss Basics</title>
+    <!-- * Css Link -->
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <!-- * Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- ? Scss Nedir?
+     
+    Scss css'in sahip olduğu tüm özellikleri barındıran,bunun yanında ise ekstra özellikler sunan bir css ön işlemcisidir.Scss variables,nesting yazım,extend,mixin,modüler dosya yönetimi gibi özellikler ile birlikte css yazımını daha da kolaylaştırır.
+
+
+
+    ! Scss bu avantajlarına rağmen tarayıcıların okuyabileceği bir dil değildir.Bu yüzden bir direkt tarayıcıya scss kodunu veremeyiz.Bu noktada ise bir eklenti aracıyılığla yazdığımız scss kodunu css'e çeviririz.Bu ekleti `Live Saass Compiler (id:glenn2223.live-sass)` eklentisidir.Bu eklenti çalıştırıldığında scss dosyasındaki kodları css dosyasına uygun formatta yazar ve bir css dosyası oluşturur.Bizde oluşturulan css dosyasını html dosyamıza bağlayarak still kodlarımızı kullanabiliriz.
+    
+    -->
+
+    <!-- * Scss Değişkenler (Variables)
+     
+    Scss değişkenleri özellikle proje boyutu büyüdükçe kod tekrarını önlemek ve proje içerisindeki değerlerin (renk,font size,font weight,...) daha kolay bir şekilde yönetilmesi için kullanılır. Ör. Bir projede tema rengi kırmızı olsun ve bu rengi projede içerisinde çokca kullanalım.Sonrasında tasarımda yapılan bir değişiklik ile bu rengi mavi yapmak isteyelim.Bu durumda eğer her yere hex veya rgb-rgba şeklinde renk kodu yazduıysak teker teker renk kodunun kullanıldığı her yere gidip bu kodu değiştirmemiz gerekir. Ancak scss değişkenleri ile bu işlemi tek bir yerde değiştirerek tüm projede bu değişikliğin yapılmasını sağlayabiliriz.
+    
+    -->
+    <h1 class="title-1">Selamlar-1</h1>
+    <h2 class="title-2">Selamlar-2</h2>
+    <h3 class="title-3">Selamlar-3</h3>
+    <h4 class="title-4">Selamlar-4</h4>
+    <h5 class="title-5">Selamlar-5</h5>
+
+    <!-- * Scss İç İçe Yazım (Nesting Yazım):
+     
+    Html elemanlarına istenilen stilleri doğru şekilde vermek için bu elemanlara doğru seçicilerle erişmek önemlidir.Ör. projedeki a etiketlerine şu stilleri ver dediğimizde projede başka a etiketleride varsa bu stiller onlara da uygulanır. Bu noktada ya class atar ya id verir yada kapsam belirterek bu elemanı spesifik şekilde seçeriz.Fakat bu durum kapsam eleman sayısının artmasıyla birlikte karmaşık bir hal alabilir. Ör. header nav ul li a şeklinde.Birde hover gibi durumlarda işin içine katılırsa bu durum daha da karmaşıklaşır. İşte scss nesting yazımı ile bu durumu daha da kolaylaştırabiliriz. Scss bir kapsam elemana ve kapsam içerisindeki elemanlara tek bir blok içerisinde erişmemizi sağlar. Bu sayede uzun uzun kod yazmak zorunda kalmayız. 
+    
+    -->
+
+    <header>
+      <!-- Logo -->
+      <div class="logo">
+        <h1><span>Udemig</span> Akademi</h1>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <li>
+          <a href="#"><i class="fa-solid fa-house"></i>Ana sayfa</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-users"></i>Hakkımızda</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-phone"></i>İletişim</a>
+        </li>
+        <li>
+          <a href="#"
+            ><i class="fa-solid fa-bell-concierge"></i>Hizmetlerimiz</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-person"></i>Personellerimiz</a>
+        </li>
+      </nav>
+
+      <!-- Buttons -->
+      <div class="buttons-wrapper">
+        <button><i class="fa-solid fa-right-to-bracket"></i>Giriş Yap</button>
+        <button><i class="fa-solid fa-registered"></i>Kayıt Ol</button>
+      </div>
+    </header>
+
+    <!-- * Scss Miras Alma (Extend):
+     
+    Hepimiz gerek maddi gerekse manevi olarak ebeveynlerimizden bazı özellikleri miras alırız. İşte bu durumu scss ile de yapabiliriz. Scss extend özelliği ile bir class veya id altında toplanan özellikleri başka bir elemana miras aldırabiliriz. Bu sayede kod tekrarını önleyebilir ve daha hızlı geliştirme yapabiliriz.Ör. Projede flexbox özelliği çokca kullanılıyorsa bu özelliği bir class veya id altında toplayıp bu özelliğin gerektiği yerlerde miras alabiliriz.
+    
+    
+    -->
+
+    <section class="section-1">
+      <h2>Başık</h2>
+      <p>Daha Fazla</p>
+    </section>
+
+    <div class="wrapper">
+      <button>Button-1</button>
+      <button>Button-2</button>
+      <button>Button-3</button>
+      <button>Button-4</button>
+    </div>
+
+    <!-- * Scss Mixin Yapısı:
+     
+    Scss mixin yapıları hem ortak yapılar oluşturmak (ortak bir button tasarımı,...) hemde repsonsive tasarımları daha kolay  bir şekilde yapmamızı sağlar.Bir mixin yapısını kullanabilmek için ilk olarak @mixin (mixinAdı) {} şeklinde tanımlamalı sonrasında proje içerisinde istenilen yerde @include (mixinAdı) şeklinde kullanmalıyız. 
+    -->
+
+    <button id="more-btn">Daha Fazla</button>
+    <button id="detail-btn">Detay Gör</button>
+    <button id="login-btn">Giriş Yap</button>
+
+    <!-- * Scss Modüler Dosya Yönetimi:
+     
+    Proje boyutu büyüdükçe still kodlarını tek bir dosyada tutmak zorlaşır. Kodun yönetimi ve bakımı yönetilemez hale gelir. Bu noktada scss modüler dosya yönetimi ile proje içerisindeki still kodlarını birden fazla dosyaya bölüp daha kolay bir şekilde yönetebiliriz. Bu yönetim sırasında dikkat etmemiz gereken en önemli nokta bir ana scss dosyasının olup diğer scss dosyalarının ise bu ana dosya içerisinde import edilmesi gerektiğidir.Scss'in önceki sürümlerinde ana scss dosyası ve diğer dosyalar arasındaki bağlantı @iömport ile yapılırken scss'in son sürümlerinde bu bağlantı @use ile yapılmaktadır. Bu yeni yöntem scss'in önceki sürümlerinde yaşanan bazı karışıklıkları önlemek için geliştirilmiştir. 
+
+
+
+    ! Özetle tek bir scss dosyası içerisinde still kodlarını yönetmemiz zor olacağından bu kodları birden fazla scss dosyasına bölüp kod yönetimini daha kolay bir hale getirebiliriz.Bunu yaparken bir ana scss dosyasının olması gerektiğini ve bu ana scss dosyası yanındaki diğer scss dosyalarını tanımlarken dosya adı başına "_" işareti koymamız gerektiğini unutmamalıyız. Bu sayede scss bu dosyalarından hangisinin ana scss hangisinin yardımcı scss dosyası olduğunu anlayabilir. Bir scss dosyası içerisindeki kodların başka bir scss dosyası içerisinde kullanılabilmesi için ise still özelliklerinin kullanılacağı dosyada @use "dosyaAdı"; şeklinde tanımlama yapmalıyız. Bu sayede scss dosyaları arasında bağlantı kurabiliriz.
+    
+    -->
+
+    <br /><br /><br />
+
+    <a href="/detail.html">Detay Sayfasına Git</a>
+  </body>
+</html>

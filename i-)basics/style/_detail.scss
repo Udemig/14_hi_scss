@@ -1,0 +1,19 @@
+@use "./variables";
+
+#detail-header {
+  background-color: tomato;
+  font-size: 50px;
+  height: 100px;
+}
+
+main {
+  height: calc(100vh - 200px);
+  background-color: variables.$title-color;
+}
+
+footer {
+  height: 100px;
+  background-color: turquoise;
+  text-align: center;
+  font-size: 55px;
+}
