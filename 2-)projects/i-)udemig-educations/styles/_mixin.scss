@@ -38,6 +38,12 @@
   }
 }
 
+@mixin formItems {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 @mixin container {
   padding: 70px 17% 60px;
 

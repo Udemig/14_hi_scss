@@ -3,8 +3,13 @@
 
 #about-us {
   @include mixin.container;
-  @include mixin.flexBox;
-  gap: 9rem;
+  // Bir mixin içerisinde media sorgusu yapıldıysa bunun akabinde kullanılacak mixin için & işareti kullanılmalıdır.
+
+  & {
+    @include mixin.flexBox;
+
+    gap: 9rem;
+  }
 
   @include mixin.tablet {
     flex-direction: column;
