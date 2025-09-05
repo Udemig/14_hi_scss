@@ -44,5 +44,23 @@
     }
 
     // Buttons
+    .hero_content_buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      a{
+        font-size: 1rem;
+        font-weight: 500;
+        color: variables.$text-dark;
+        display: flex;
+        align-items: center;
+        columns: 0.25rem;
+        i{
+          font-size: 2rem;
+        }
+      }
+    }
   }
 }
